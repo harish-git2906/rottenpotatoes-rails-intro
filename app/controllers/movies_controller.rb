@@ -13,40 +13,43 @@ class MoviesController < ApplicationController
 
   def index
     #Find the all possible ratings of the movies
-    @all_ratings = Movie.listRatings
+    @all_ratings = Movie.list_Ratings
     
-    #If ratings are passed as parameters then form the ratings key with those
-    if params[:ratings]
-      @def_ratings = params[:ratings]
-    #If ratings not in params pick the ratings filter from session params
-    elsif session[:ratings]
-      @def_ratings = session[:ratings]
-    #If ratings in session params are nill then choose all ratings
+    if parm[:ratings]
+      @def_rat = parm[:ratings]
+    elsif params[:ratings]
+      @def_rat = params[:ratings] #choose params ratings 
+   
+    
+    #choose all ratings if null
     else
-      @def_ratings = Hash[@all_ratings.collect{|item| [item, '1']}]
+      @def_rat = Hash[@all_ratings.collect{|item| [item, '1']}]
     end
     
-    #If sort id is passed in params then set sort_key to that value else choose from session params
+    
     if params[:sort_id]
-      sort_key = params[:sort_id]
+      key_sorted = params[:sort_id]
     else
-      sort_key = session[:sort_id]
+      key_sorted = parm[:sort_id] #passed sort_id n params, key_sorted is set to that value 
+      #else choose from parm params
     end
     
-    @title_hilite = ''
     @date_hilite = ''
-    if sort_key == 'title'
-      #@movies = Movie.ascorder('title')
+    @title_hilite = ''
+    
+   if key_sorted == 'release_date'
+      
+      @date_hilite = 'hilite' 
+    elsif key_sorted == 'title'
+     
       @title_hilite = 'hilite'
-    elsif sort_key == 'release_date'
-      #@movies = Movie.ascorder('release_date')
-      @date_hilite = 'hilite'
+   
     end
     
-    session[:ratings] = @def_ratings
-    session[:sort_id] = sort_key
+   parm[:ratings] = @def_rat
+    parm[:sort_id] = key_sorted
     
-    @movies = Movie.get_Rated_Movies(@def_ratings.keys(), sort_key)
+    @movies = Movie.get_Rated_Movies(@def_rat.keys(), key_sorted)
     
   end
   
