@@ -38,7 +38,6 @@ class MoviesController < ApplicationController
     @title_hilite = ''
     
    if key_sorted == 'release_date'
-      
       @date_hilite = 'hilite' 
     elsif key_sorted == 'title'
      
