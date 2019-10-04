@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
       @def_rat = params[:ratings] #choose params ratings 
    
     
-    #choose all ratings if null
+    #choose all ratings when null
     else
       @def_rat = Hash[@all_ratings.collect{|item| [item, '1']}]
     end
