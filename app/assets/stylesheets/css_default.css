@@ -1,0 +1,73 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  color: DarkSlateGrey;
+  background: White;
+  font-family: Tahoma, sans-serif, Verdana;
+  font-size: 10pt;
+}
+div#main {
+  margin: 0;
+  padding: 0 20px 20px;
+}
+
+a {
+  background: transparent;
+  color: maroon;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+h1 {
+  color: yellow;
+  font-size: 140%;
+  font-style: italic;
+  display: block;
+  width: 99%;
+  border-bottom: 2px solid DarkSlateGrey;
+}
+
+h1.title {
+  margin: 0 0 1em;
+  padding: 12px;
+  background-color: orange;
+  color: white;
+  border-bottom: 5px solid gold;
+  font-size: 2em;
+  font-style: normal;
+}
+table#movies {
+  margin: 11px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#movies th {
+  border: 3px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#movies th, table#movies td {
+  padding: 6px;
+  text-align: left;
+}
+
+
+
+table#movies th.hilite {
+  background-color: yellow;
+}
+
+#notice #warning {
+  background: wheat;
+  margin: 1em 0;
+  padding: 5px;
+}
+
+form label {
+  display: block;
+  line-height: 27px;
+  font-weight: bold;
+  color: maroon;
+}
